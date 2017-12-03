@@ -1,0 +1,31 @@
+{
+  "name": "hackspace",
+  "version": "1.0.0",
+  "description": "first development of hackspace session1",
+  "engines": {
+    "node": "8.9.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "\"echo \" error not test specified\" \""
+  },
+  "author": "Josue Tavara",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.2",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtavara23/Hackspace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jtavara23/Hackspace/issues"
+  },
+  "homepage": "https://github.com/jtavara23/Hackspace#readme"
+}
