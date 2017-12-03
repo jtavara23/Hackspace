@@ -12,7 +12,7 @@ var User = require('../models/user');
 
 // PETICIONES
 // GET HOME PAGE
-
+/*
 router.route('/').get(function (req, res) {
     // Consulta al modelo Speciality en la base de datos.
     //obtnenemos de Speciality
@@ -23,6 +23,11 @@ router.route('/').get(function (req, res) {
         }
     )
 });
+*/
+router.route('/').get(function (req, res) {
+    res.render('especialidades.html');
+}
+
 //Creacion de una instancia mediante DIRECCION URL
 router.route('/agregar/:nombre/:imagen/').get(function (req, res) {
     //Obtencion de parametros de url
