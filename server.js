@@ -2,6 +2,7 @@
 // REQUERIMIENTO DE MODULOS
 var express =  require('express');
 var swig = require('swig');
+var cors = require('cors');
 // Requerimiento de mongoose
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -9,6 +10,7 @@ var bodyParser = require('body-parser');
 //CONFIGURACIONES
 // Creación del servidor web con express
 var server = express();
+
 // Integracion del motor de templates swig
 server.engine('html',swig.renderFile);
 server.set('view engine', 'html');
@@ -31,6 +33,8 @@ require('./routers')(server);
 mongoose.connect('mongodb://jtavara23:JGti2323@ds129641.mlab.com:29641/hackspace', { useMongoClient: true });
 mongoose.Promise = global.Promise
 
+//CONFIGURACIONES DE CORS
+server.use(cors())
 
 // INICIAR SERVIDOR
 // Se corre el servidor en el puerto 8000
