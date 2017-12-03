@@ -25,7 +25,7 @@ router.route('/').get(function (req, res) {
 });
 */
 router.route('/').get(function (req, res) {
-    res.render('especialidades.html');
+    res.render('app.html');
 });
 
 //Creacion de una instancia mediante DIRECCION URL

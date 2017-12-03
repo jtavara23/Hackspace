@@ -1,166 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title> Consumo de API y Single Page App</title>
-
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Required Vue and Axios -->		
-		<script src="https://unpkg.com/vue@2.5.8/dist/vue.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<style type="text/css">
-			.card {
-				width: 170px;
-			}
-			.card-img-top {
-				width: 150px;
-				height: 150px;
-				margin: 10px;
-			}
-			.card-title {
-				font-size: 1.2rem;
-			}
-		</style>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" >
+		<link rel="stylesheet" href="/css/main.css" >
 	</head>
 	<body>
 
-		<div class="container pt-3">
-			<h4>ESPECIALIDADES jaja</h4>
-		</div>	
-		<!-- Listado de especialidades -->
-		<div id="app_especialidad" class="container pt-2 d-flex align-items-start flex-wrap justify-content-center">
-            <template v-for="especialidad in especialidades">
-                <div class="card m-2 "> 
-                    <img class="card-img-top " v-bind:src="host +'/img/'+especialidad.imagen" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">{{especialidad.nombre}}</h4>
-                    </div>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Inscritos: 1</li>
-							<li class="list-group-item">Primer Usuario</li>	
-					</ul>
-                </div>
-            </template>
-		</div>
-
-		<!-- Aplicaciones en VueJS -->
-		<script>
-			// Direccion de la aplicacion
-			var host = "https://hackspacesimulacion.herokuapp.com";
-			// Listado de especialidades
-			var app_especialidad = new Vue({
-				el: '#app_especialidad',
-				data: {
-					host: host,
-					especialidades: [
-						{
-							nombre: "FRONTEND",
-							imagen: "frontend.png"
-						},
-						{
-							nombre: "BACKEND",
-							imagen: "backend.png"
-						},
-					]
-				}
-			})
-		</script>
-
-		<!-- Listado de Usuarios -->
-		<div>
-			<div  class="container pt-2 d-flex justify-content-between">
-				<h4>USUARIOS</h4>
-				<button type="button" class="btn btn-primary">
-					<i class="fa fa-plus" aria-hidden="true"></i>
-					<span>&nbsp&nbsp Agregar</span>
-				</button>
-			</div>			
-			<div class="container pt-2">
-				<table class="table">
-			  		<thead class="thead-default">
-			    		<tr>
-			      			<th style="text-align:center;" >Nombres</th>
-						    <th style="text-align:center;" >Email</th>
-						    <th style="text-align:center;" >Especialidad</th>
-						    <th style="text-align:center;" >Username</th>
-						    <th style="text-align:center;" >Opciones</th>
-			    		</tr>
-			  		</thead>
-					<tbody>
-						    <tr>
-						    	<td>Primer Usuario</td>
-						    	<td>primerusuario@gmail.com</td>
-						    	<td>FRONTEND</td>
-						    	<td>PrimerUsuario</td>
-						    	<th class="d-flex justify-content-around px-4" >
-						    		<a>
-						    			<i class="fa fa-pencil fa-lg" style="color: #2980b9; cursor:pointer;" aria-hidden="true"></i>
-						    		</a>
-						    		<a>
-						    			<i class="fa fa-trash fa-lg"  style="color: #e74c3c; cursor:pointer;" aria-hidden="true"></i>
-						    		</a>
-						      	</th>
-						    </tr>
-					</tbody>
-				</table>
+		<nav class="navbar navbar-toggleable-md  navbar-inverse bg-inverse">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="#">HackSpace</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Especialidades</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/formulario/">Formulario</a>
+					</li>
+				</ul>
 			</div>
-		</div>	
+		</nav>
 
-		<!-- Formulario -->
-		<div> 
-			<div class="container pt-2">
-				<h4>Nuevo Usuario</h4>
-			</div>
-			<div class="container pt-2 pb-4 d-flex justify-content-around">
-				<form method="post" class="w-50">
-			  		<div class="form-group ">
-			  			<label for="example-text-input" class="col-2 col-form-label">Nombre:</label>
-				  		<input class="form-control" id="nombres" name ="nombres"  type="text" placeholder="Tu nombre y apellidos" id="example-text-input">
-				  	</div>
-					<div class="form-group ">
-						<label for="example-email-input" class="col-2 col-form-label">Email:</label>
-						<input class="form-control" id="email" name ="email" type="email" placeholder="email@dominio.com" id="example-email-input">						
-					</div>
-					<div class="form-group ">
-						<label for="example-select-input" class="col-2 col-form-label">Especialidad:</label>
-						<select id="especialidad" name ="especialidad" class="form-control" id="example-select-input" >	
-							   	<option>FRONTEND</option>
-						 </select>
-					</div>
-					<div class="form-group ">
-						<label for="example-select-input" class="col-2 col-form-label">Username:</label>
-						<input class="form-control" id="username" name ="username" type="text" placeholder="Username" id="example-text-input">
-					</div>
-					<div class="form-group ">
-						<label for="example-select-input" class="col-2 col-form-label">Contraseña:</label>
-						<input class="form-control" id="password" name ="password"  type="password" placeholder="" id="example-text-input">
-					</div>
-			 		<button class="btn btn-primary">AGREGAR</button>
-			 		<button class="btn btn-danger">CANCELAR</button>
-				</form>
-				<div class="card w-50 ml-4" style="height: 370px;"> 
-					<div class="d-flex justify-content-center">
-						<img class="card-img-top" src="https://trujillo-hackspace.herokuapp.com/img/frontend.png" alt="Card image cap">	
+		<div class="container py-5 d-flex align-items-start flex-wrap justify-content-center">
+			{% for categoria in categorias %}
+				<div class="card m-2 "> 
+					<img class="card-img-top " src="/img/{{categoria.imagen}}" alt="Card image cap">
+					<div class="card-block">
+						<h4 class="card-title">{{categoria.nombre}}</h4>
 					</div>
 					<ul class="list-group list-group-flush">
-						<li class="list-group-item"><b>Especialidad: </b>&nbsp&nbsp  FRONTEND </li>
-						<li class="list-group-item"><b>Nombres:      </b>&nbsp&nbsp  Primer Usuario</li>
-						<li class="list-group-item"><b>Email:        </b>&nbsp&nbsp  primerusuario@gmail.com</li>
-						<li class="list-group-item"><b>Useranme:     </b>&nbsp&nbsp  PrimerUsuario</li>
+						<li class="list-group-item">Inscritos: {{categoria.inscritos}}</li>
+						{% for user in categoria.users %}
+							<li class="list-group-item">{{user.nombres}}</li>
+						{% endfor %}
 					</ul>
 				</div>
-			</div>
-		</div>	
-				
+			{% endfor %}
+		</div>
+
 		<!-- jQuery first, then Tether, then Bootstrap JS. -->
-		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		<script src="/js/jquery-3.1.1.slim.min.js" ></script>
+		<script src="/js/tether.min.js" ></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
