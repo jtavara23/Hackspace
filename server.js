@@ -36,6 +36,7 @@ mongoose.Promise = global.Promise
 //CONFIGURACIONES DE CORS
 server.use(cors())
 
+
 // INICIAR SERVIDOR
 // Se corre el servidor en el puerto 8000
 /*
