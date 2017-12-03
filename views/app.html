@@ -58,16 +58,24 @@
 				el: '#app_especialidad',
 				data: {
 					host: host,
-					especialidades: [
-						{
-							nombre: "FRONTEND",
-							imagen: "frontend.png"
-						},
-						{
-							nombre: "BACKEND",
-							imagen: "backend.png"
-						},
-					]
+					especialidades: [	]
+				},
+				created: function () {
+					this.cargar_especialidades();
+				},
+				methods: {
+					cargar_especialidades: function () {
+						var config = {
+							headers: {
+								'Access-Control-Allow-Origin': '*',
+								'Content-Type': 'application/json',
+							}
+						};
+						axios.get(host + '/api/specialities', config)
+							.then(function (response) {
+								console.log(response.data);
+							})
+					}  
 				}
 			})
 		</script>
