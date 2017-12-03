@@ -73,7 +73,8 @@
 						};
 						axios.get(host + '/api/specialities', config)
 							.then(function (response) {
-								console.log(response.data);
+								//console.log(response.data);
+								 app_especialidad.especialidades = response.data;
 							})
 					}  
 				}
