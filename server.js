@@ -31,13 +31,16 @@ require('./routers')(server);
 
 // CONFIGURACIONES DB
 // Integración de mongoose
-mongoose.connect('mongodb://localhost/hackspace', { useMongoClient: true });
-//mongoose.connect('mongodb://jtavara23:JGti2323@ds129641.mlab.com:29641/hackspace', { useMongoClient: true });
+//mongoose.connect('mongodb://localhost/hackspace', { useMongoClient: true });
+mongoose.connect('mongodb://jtavara23:JGti2323@ds129641.mlab.com:29641/hackspace', { useMongoClient: true });
 mongoose.Promise = global.Promise
 
-
-
 // INICIAR SERVIDOR
+
+server.listen(process.env.PORT || 5000, function () {
+	console.log('El servidor esta escuchando en el puerto ' + 5000)
+});
+
 // Se corre el servidor en el puerto 8000
 /*
 server.listen(8000, function() {
@@ -45,6 +48,3 @@ server.listen(8000, function() {
 }); 
 */
 
-server.listen(process.env.PORT || 5000, function () {
-	console.log('El servidor esta escuchando en el puerto ' + 5000)
-});
