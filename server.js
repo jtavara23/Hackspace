@@ -10,6 +10,8 @@ var bodyParser = require('body-parser');
 //CONFIGURACIONES
 // Creación del servidor web con express
 var server = express();
+//CONFIGURACIONES DE CORS
+server.use(cors())
 
 // Integracion del motor de templates swig
 server.engine('html',swig.renderFile);
@@ -29,12 +31,10 @@ require('./routers')(server);
 
 // CONFIGURACIONES DB
 // Integración de mongoose
-//mongoose.connect('mongodb://localhost/hackspace', { useMongoClient: true });
-mongoose.connect('mongodb://jtavara23:JGti2323@ds129641.mlab.com:29641/hackspace', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/hackspace', { useMongoClient: true });
+//mongoose.connect('mongodb://jtavara23:JGti2323@ds129641.mlab.com:29641/hackspace', { useMongoClient: true });
 mongoose.Promise = global.Promise
 
-//CONFIGURACIONES DE CORS
-server.use(cors())
 
 
 // INICIAR SERVIDOR
